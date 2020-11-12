@@ -1,16 +1,16 @@
 from django import forms
-from . import Pizza, Topping
+from .models import Pizza, Topping
 
-class PizzaForm(forms.ModelForm):
-    class Meta:
-        model = Pizza
-        fields = ["text"]
-        labels = {"text": ""}
+# class PizzaForm(forms.ModelForm):
+#     class Meta:
+#         model = Pizza
+#         fields = ["text"]
+#         labels = {"text": ""}
 
 
 class ToppingForm(forms.ModelForm):
     class Meta:
         model = Topping
-        fields = ["text"]
-        labels = {"text": ""}
-        widgets = {"text": forms.Textarea(attrs={"cols": 80})}
+        fields = ["toppings"]
+        labels = {"TOPPINGS_CHOICES": ""}
+        widgets = {"toppings": forms.ChoiceField(choices=Topping.TOPPINGS_CHOICES)}

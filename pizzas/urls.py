@@ -12,5 +12,5 @@ urlpatterns = [
     #Strona z wybranymi dodatkami
     path("pizzas/(<int:pizza_id>)/", views.toppings, name="toppings"),
     #Strona przeznaczona do edycji pizzy
-    path("edit_toppings/<int:topping_id>/", views.edit_toppings, name="edit_toppings"),
+    path("edit_toppings/(<int:topping_id>)/", views.edit_toppings, name="edit_toppings"),
 ]
