@@ -12,5 +12,5 @@ class ToppingForm(forms.ModelForm):
     class Meta:
         model = Topping
         fields = ["toppings"]
-        labels = {"TOPPINGS_CHOICES": ""}
+        labels = {"toppings": ""}
         widgets = {"toppings": forms.ChoiceField(choices=Topping.TOPPINGS_CHOICES)}

@@ -30,6 +30,7 @@ def edit_toppings(request, topping_id):
     """Edycja pizzy"""
     topping = Topping.objects.get(id=topping_id)
     pizza = topping.pizza
+    top = [pos[0] for pos in topping.TOPPINGS_CHOICES]
 
     if request.method != 'POST':
         form = ToppingForm(instance=topping)
@@ -39,7 +40,7 @@ def edit_toppings(request, topping_id):
             form.safe()
             return redirect("pizzas:toppings", topping_id=topping_id)
 
-    context = {"topping": topping, "pizza": pizza, "form": form}
+    context = {"topping": topping, "pizza": pizza, "form": form, "top": top}
     return render(request, "pizzas/edit_toppings.html", context)
 
 
