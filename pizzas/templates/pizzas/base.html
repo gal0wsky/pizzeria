@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            margin: 0 auto;
+            text-align: center;
+            color: black;
+            background-color: #d2cfcd;
+            font-family: Arial;
+        }
+        
+        h1 {
+            font-size: 60px;
+        }
+        
+        a {
+            text-decoration: none;
+            color: black;
+            font-family: Arial;
+            font-weight: bold;
+        }
+        
+        a:hover {
+            background-color: #857c77;
+        }
+        
+        ul {
+            list-style-type: square;
+            float: left;
+            padding-left: 40px;
+        }
+        
+        li {
+            font-size: 20px;
+        }
+        
+        #hello {
+            padding: 20px;
+            font-size: 30px;
+        }
+        
+        #orders {
+            float: left;
+            padding-left: 20px;
+        }
+        
+        #ordersList {
+            width: 300px;
+            position: relative;
+            left: calc(50% - 120px);
+            top: calc(50%);
+        }
+        
+        #goToPizzas {
+            position: relative;
+            top: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <p>
+        <a href="{% url 'pizzas:index' %}">Pizzas</a> | <a href="{% url 'pizzas:pizzas' %}">Our Pizzas</a>
+    </p>
+    <br>
+    <h1>Pizzas</h1>
+    {% block content %} {% endblock content %}
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+{% extends "pizzas/base.html" %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Pizzas | Our Pizzas</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    {% block content %}
+    <br>
+    <h2>Welcome to our page with pizzas you can order</h2>
+    <br><br>
+    <div id="ordersList">
+        <h3 id="orders">Your orders are here:</h3>
+        <br><br>
+        <ul>
+            {% for pizza in orderedPizza %}
+            <li>
+                <a href="{% url 'pizzas:toppings' pizza.id %}">{{ pizza }}</a>
+            </li>
+            {% empty %}
+            <li>Nie dodano jeszcze żadnej pizzy</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endblock content %}
+</body>
+
+</html>

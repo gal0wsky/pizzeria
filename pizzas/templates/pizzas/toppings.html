@@ -1,0 +1,34 @@
+{% extends "pizzas/base.html" %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Pizzas | Toppings</title>
+    <meta charset="utf-8">
+    <meta name="language" content="pl-PL">
+</head>
+
+<body>
+    {% block content %}
+    <br><br><br>
+    <h2>Pizza: {{ pizza }}</h2>
+    <br>
+    <h3>Wybrane dodatki:</h3>
+    <br><br>
+    <div id="ordersList">
+        <ul>
+            {% for topping in toppings %}
+            <li>
+                {{ topping.toppings }}
+            </li>
+            <br> {% empty %}
+            <li>Nie wybrano jeszcze żadnych dodatków!</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <p><a href="{% url 'pizzas:edit_toppings' topping.id %}">Edytuj dodatki</a></p>
+
+    {% endblock content %}
+</body>
+
+</html>
