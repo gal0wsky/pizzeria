@@ -42,19 +42,3 @@ def edit_toppings(request, topping_id):
 
     context = {"topping": topping, "pizza": pizza, "form": form, "top": top}
     return render(request, "pizzas/edit_toppings.html", context)
-
-
-# def edit_toppings(request, pizza_id):
-#     pizza = Topping.objects.get(id=pizza_id)
-#     topping = pizza.toppings
-#
-#     if request.method != 'POST':
-#         form = ToppingForm(instance=topping)
-#     else:
-#         form = ToppingForm(instance=topping, data=request.POST)
-#         if form.is_valid():
-#             form.save()
-#             return redirect("pizzas:toppings", topping_id=topping_id)
-#
-#     context = {"pizza": pizza, "topping": topping, "form": form}
-#     return render(request, "pizzas/edit_toppings.html", context)

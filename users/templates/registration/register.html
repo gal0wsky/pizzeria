@@ -1,0 +1,22 @@
+{% extends "pizzas/base.html" %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Pizzas | Rejestracja</title>
+    <meta charset="utf-8">
+    <meta name="language" content="pl-PL">
+</head>
+
+<body>
+    {% block content %}
+    <form action="{% url 'users:register' %}" method="POST">
+        {% csrf_token %} {{ form.as_p }}
+
+        <button name="submit" class="submitButton">Rejestruj</button>
+        <input type="hidden" name="next" value="{% url 'pizzas:index' %}">
+    </form>
+    {% endblock content %}
+</body>
+
+</html>

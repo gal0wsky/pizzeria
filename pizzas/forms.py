@@ -9,8 +9,9 @@ from .models import Pizza, Topping
 
 
 class ToppingForm(forms.ModelForm):
+    choices = forms.ChoiceField(choices=Topping.TOPPINGS_CHOICES)
     class Meta:
         model = Topping
-        fields = ["toppings"]
+        fields = ["toppings", "choices"]
         labels = {"toppings": ""}
-        widgets = {"toppings": forms.ChoiceField(choices=Topping.TOPPINGS_CHOICES)}
+        # widgets = {"toppings": forms.ChoiceField(choices=Topping.TOPPINGS_CHOICES)}

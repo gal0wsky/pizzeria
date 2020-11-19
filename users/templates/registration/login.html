@@ -1,0 +1,25 @@
+{% extends "pizzas/base.html" %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Pizzas | Logowanie</title>
+
+    <meta charset="utf-8">
+    <meta name="language" content="pl-PL">
+</head>
+
+<body>
+    {% block content %} {% if form.errors %}
+    <p>Nazwa użytkownika i hasło są niepoprawne. Proszę spróbować ponownie.</p>
+    {% endif %}
+
+    <form action="{% url 'users:login' %}" method="POST">
+        {% csrf_token %} {{ form.as_p }}
+        <button name="submit" class="submitButton">Zaloguj</button>
+        <input type="hidden" name="next" value="{% url 'pizzas:index' %}">
+    </form>
+    {% endblock content %}
+</body>
+
+</html>

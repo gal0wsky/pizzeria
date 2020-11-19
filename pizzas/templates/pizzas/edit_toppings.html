@@ -17,16 +17,12 @@
     <br>
 
     <form action="{% url 'pizzas:edit_toppings' topping.id%}" method="POST">
-        <!-- {% for top in topping.TOPPINGS_CHOICES %} {% for pos in top %}
-        <input type="checkbox">{{ pos }}
-        <br><br> {% empty %}
-        <p>Brak wybranych dodatków do pizzy</p>
-        {% endfor %} {% endfor %} -->
-        {% for pos in top %}
-        <input type="checkbox">{{ pos }}
+        {% csrf_token %} {% for pos in top %}
+        <input type="checkbox" name="{{topping.toppings}}">{{ pos }}
         <br><br> {% empty %}
         <p>Brak wybranych dodatków do pizzy</p>
         {% endfor %}
+        <button type="submit" class="submitButton">Potwierdź zmiany</button>
     </form>
 
     {% endblock content %}
